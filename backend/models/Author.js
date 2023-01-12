@@ -1,29 +1,25 @@
-const mongoose = require('mongoose');
-const schema = mongoose.Schema;
+const mongoose = require("mongoose");
 
-const Author = schema({
-    name: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    dob: {
-        type: Date,
-        required: true
-    },
-    biography: {
-        type: String
-    },
-    display_picture: {
-        type: string
-    }
+const Author = mongoose.model("Author", {
+  name: {
+    type: String,
+  },
+  lastname: {
+    type: String,
+  },
+  email: {
+    type: String,
+    unique: true,
+  },
+  password: {
+    type: String,
+  },
+  about: {
+    type: String,
+  },
+  image: {
+    type: String,
+  },
 });
 
 module.exports = Author;

@@ -1,25 +1,19 @@
-// Declaration import packages
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
+const express = require('express');
+// const articleApi = require('../routes/article');
+const authorApi = require('./routes/author_api');
+const cors = require('cors')
+require('./config/connect');
+require('dotenv/config');
 const app = express();
-
-// Middleware use express and cors
-app.use(express.json);
+app.use(express.json());
 app.use(cors());
 
-// Mongodb Connection
-mongoose.connect(process.env.DB_CONNECTION, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-let db = mongoose.connection;
-db.on("error", console.error.bind(console, "Database connection failed"));
-db.once("open", () => {
-  console.log("Database connected");
-});
+// app.use('/article' , articleApi);
+app.use('/author' , authorApi);
 
-// Routing
-app.listen(process.env.PORT, () => {
-  console.log("server is up");
-});
+// app.use('/getimage' , express.static('./uploads'));
+
+
+app.listen(process.env.PORT, ()=>{
+    console.log('server work');
+})
