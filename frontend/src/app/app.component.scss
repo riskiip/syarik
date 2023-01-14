@@ -1,0 +1,11 @@
+.content-outer-container {
+  min-height: 90%;
+  margin: 60px;
+
+  .content-inner-container {
+    background-color: var(--grey);
+    min-height: 550px;
+    border-radius: 20px;
+    padding: 20px;
+  }
+}
