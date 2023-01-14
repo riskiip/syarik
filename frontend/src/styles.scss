@@ -1,18 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
 :root{
-  --black: #222831;
   --dark-grey: #393E46;
-  --grey: #EEEEEE;
-  --grey-darker: #d4c7c7
+  --blue-content: #EFFFFD;
+  --white-darker: #cfdcda;
+  --white: #fff;
   --green: #00ADB5;
 }
 
 html, body, app-root {
-  background-color: var(--grey);
   height: 100%;
+  font-family: 'Lato', sans-serif;
 }
 
 body {
+  background-color: var(--white-darker);
   margin: 0
 }
 

@@ -5,13 +5,16 @@ import { ArticleRoutingModule } from './article-routing.module';
 import { ArticleComponent } from './article.component';
 import { CreateArticleComponent } from './create-article/create-article.component';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
+import { LatestArticleComponent } from './latest-article/latest-article.component';
 
 @NgModule({
   declarations: [
     ArticleComponent,
     CreateArticleComponent,
-      DetailArticleComponent,
+    DetailArticleComponent,
+    LatestArticleComponent,
   ],
   imports: [CommonModule, ArticleRoutingModule],
+  exports: [LatestArticleComponent]
 })
 export class ArticleModule {}

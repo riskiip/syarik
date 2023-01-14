@@ -1,3 +1,4 @@
+import { ArticleModule } from './../article/article.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +12,8 @@ import { HomepageComponent } from './homepage.component';
   ],
   imports: [
     CommonModule,
-    HomepageRoutingModule
+    HomepageRoutingModule,
+    ArticleModule
   ]
 })
 export class HomepageModule { }
