@@ -15,4 +15,8 @@ export class ArticleService {
   getLatestArticle() {
     return this.http.get(environment.baseUrl+'/article/latest');
   }
+
+  getArticleById(id: string) {
+    return this.http.get(environment.baseUrl+`/article/getbyid/${id}`);
+  }
 }
