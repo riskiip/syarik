@@ -1,0 +1,69 @@
+%button-skleton {
+  min-width: 160px;
+  min-height: 48px;
+  border-radius: 40px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.custom-button {
+  &-filled {
+    &-success {
+      @extend %button-skleton;
+      background-color: var(--green-button);
+      border: 0;
+      color: white;
+    }
+
+    &-warning {
+      @extend %button-skleton;
+      background-color: var(--yellow-button);
+      border: 0;
+      color: white;
+    }
+
+    &-info {
+      @extend %button-skleton;
+      background-color: var(--blue-button);
+      border: 0;
+      color: white;
+    }
+
+    &-danger {
+      @extend %button-skleton;
+      background-color: var(--red-button);
+      border: 0;
+      color: white;
+    }
+  }
+
+  &-outline {
+    &-success {
+      @extend %button-skleton;
+      border: solid 0.5px var(--green-button);
+      background-color: white;
+      color: var(--grey-body);
+    }
+
+    &-warning {
+      @extend %button-skleton;
+      border: solid 0.5px var(--yellow-button);
+      background-color: white;
+      color: var(--grey-body);
+    }
+
+    &-info {
+      @extend %button-skleton;
+      border: solid 0.5px var(--blue-button);
+      background-color: white;
+      color: var(--grey-body);
+    }
+
+    &-danger {
+      @extend %button-skleton;
+      border: solid 0.5px var(--red-button);
+      background-color: white;
+      color: var(--grey-body);
+    }
+  }
+}

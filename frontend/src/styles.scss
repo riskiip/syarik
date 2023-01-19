@@ -1,9 +1,20 @@
+@import './styles/template/button.scss';
+
 :root{
-  --dark-grey: #393E46;
-  --blue-content: #EFFFFD;
-  --white-darker: #cfdcda;
+  // Font Color
+  --grey-header: #204056;
+  --grey-body: #393E46;
+
+  // Background
+  --red-navbar: #85586F;
+  --white-darker: #F9F7F7;
   --white: #fff;
-  --green: #00ADB5;
+
+  // Button Color
+  --red-button: #ff9288;
+  --yellow-button: #fffec3;
+  --green-button: #82c8e2;
+  --blue-button: #a4d7ec;
 }
 
 html, body, app-root {
@@ -17,5 +28,5 @@ body {
 }
 
 div {
-  color: var(--dark-grey);
+  color: var(--grey-body);
 }

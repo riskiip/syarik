@@ -1,3 +1,5 @@
+import { SharedModule } from './../../shared/shared.module';
+import { DateFormatPipe } from './../../shared/pipe/date-format.pipe';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
@@ -14,7 +16,7 @@ import { LatestArticleComponent } from './latest-article/latest-article.componen
     DetailArticleComponent,
     LatestArticleComponent,
   ],
-  imports: [CommonModule, ArticleRoutingModule],
+  imports: [CommonModule, ArticleRoutingModule, SharedModule],
   exports: [LatestArticleComponent]
 })
 export class ArticleModule {}
