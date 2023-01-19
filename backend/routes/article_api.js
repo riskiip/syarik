@@ -104,5 +104,31 @@ router.put("/update/:id", upload.any("image"), (req, res) => {
     });
 });
 
+router.get("/latest", (req, res) => {
+  Article.find({})
+    .limit(3)
+    .sort({date: 'desc'})
+    .then((articles) => {
+      res.status(200).send(articles);
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+});
+
+router.get("/al/:tag", (req, res) => {
+  let tag = req.params.tag;
+  console.log(tag);
+  Article.find({
+    tags: { $in: [tag] },
+  })
+    .then((articles) => {
+      res.status(200).send(articles);
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+});
+
 module.exports = router;
   
