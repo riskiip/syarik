@@ -1,1 +1,17 @@
-<p>article works!</p>
+<ng-container *ngIf="showAllArticle">
+  <div class="title-styling">
+    Kumpulan Blog Artikel
+  </div>
+</ng-container>
+
+<app-card
+  [articles]="articles">
+</app-card>
+
+<ng-container *ngIf="showAllArticle">
+  <div class="button-container">
+    <button class="custom-button-filled-danger" (click)="backToHome()">
+      Kembali ke Homepage
+    </button>
+  </div>
+</ng-container>

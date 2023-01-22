@@ -1,0 +1,63 @@
+@import 'src/styles/template/dimesion';
+
+.about-container {
+  padding: 30px;
+}
+
+.picture-logo {
+  width: 200px;
+  height: 200px;
+}
+
+.picture-right {
+  display: flex;
+  border: 1px solid white;
+  background-color: var(--red-navbar);
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+@media screen and (min-width: $bp-xs) {
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .description-left {
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  .button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: $bp-sm) {
+  .about-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .description-left {
+    display: flex;
+    width: 300px;
+    margin-right: 24px;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+  }
+}

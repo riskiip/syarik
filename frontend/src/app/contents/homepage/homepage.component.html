@@ -1,22 +1,29 @@
-<!-- Quote Section -->
-<div class="blockquote-wrapper">
-  <div class="blockquote">
-    <h1>
-      Sebaik-baiknya manusia adalah yang paling bermanfaat bagi orang lain
-    </h1>
-    <h4>&mdash;HR. Ahmad</h4>
-  </div>
-</div>
+<ng-container *ngIf="!dataLoaded; else showContent">
+  <app-loader></app-loader>
+</ng-container>
 
-<hr>
+<ng-template #showContent>
+  <!-- Quote Section -->
+  <div class="blockquote-wrapper">
+    <div class="blockquote">
+      <h1>
+        Sebaik-baiknya manusia adalah yang paling bermanfaat bagi orang lain
+      </h1>
+      <h4>&mdash;HR. Ahmad</h4>
+    </div>
+  </div>
 
-<!-- Latest Article Section -->
-<div class="latest-article-section">
-  <div class="latest-article-title">
-    Posting Blok Terakhir
+  <!-- Latest Article Section -->
+  <div class="latest-article-section">
+    <div class="title-styling">
+      Posting Blok Terakhir
+    </div>
+    <app-article
+      [articles]="articleData"
+    ></app-article>
+    <div class="button-field">
+      <button class="custom-button-outline-danger" (click)="goToArticles()">Lihat semua posting</button>
+    </div>
   </div>
-  <app-latest-article></app-latest-article>
-  <div class="button-field">
-    <button class="custom-button-outline-danger">Lihat semua posting</button>
-  </div>
-</div>
+</ng-template>
+

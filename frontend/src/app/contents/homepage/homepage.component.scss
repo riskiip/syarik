@@ -1,3 +1,9 @@
+
+
+.coba {
+  background: transparent;
+}
+
 /* center the blockquote in the page */
 .blockquote-wrapper {
   display: flex;
@@ -6,6 +12,8 @@
 
 /* Blockquote main style */
 .blockquote {
+  //font-family: 'Pacifico', cursive;
+  font-family: 'Kaushan Script', cursive;
   position: relative;
   font-weight: 600;
   color: var(--grey-header);
@@ -63,15 +71,6 @@
 
 .latest-article-section {
   margin-bottom: 16px;
-  .latest-article-title {
-    //margin-bottom: 32px;
-    font-size: 48px;
-    color: var(--grey-header);
-    margin: 24px 0 32px 0;
-    text-align: center;
-    font-weight: 800;
-    line-height: 24px;
-  }
 }
 
 .button-field {
