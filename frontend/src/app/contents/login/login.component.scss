@@ -1,0 +1,79 @@
+@import "src/styles/template/dimesion";
+
+.login-wrapper, .regis-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+
+  .login-container, .regis-container {
+
+    background-color: white;
+    box-shadow: -3px 7px 57px -5px rgba(0,0,0,0.81);
+    -webkit-box-shadow: -3px 7px 57px -5px rgba(0,0,0,0.81);
+    -moz-box-shadow: -3px 7px 57px -5px rgba(0,0,0,0.81);
+  }
+
+  .picture-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+
+    .image {
+      width: 150px;
+      height: 150px;
+      background-color: var(--red-navbar);
+      border-radius: 50%;
+    }
+  }
+
+  .email-field, .password-field, .button-field {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .input-field {
+    width: 100%;
+    border-radius: 20px;
+    padding: 8px;
+    border: none;
+    margin-top: 6px;
+    border: 0.5px solid var(--blue-button);
+  }
+
+  p {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6px;
+  }
+}
+
+
+@media screen and (min-width: $bp-xs) {
+  .login-wrapper, .regis-wrapper {
+    background-color: white;
+  }
+}
+
+@media screen and (min-width: $bp-sm) {
+  .login-wrapper, .regis-wrapper {
+    background-color: var(--red-navbar);
+  }
+  .login-container,  .regis-container {
+    border-radius: 20px;
+  }
+
+  .login-container {
+    width: 300px;
+    height: 510px;
+  }
+
+  .regis-container {
+    width: 400px;
+    height: 650px;
+  }
+}

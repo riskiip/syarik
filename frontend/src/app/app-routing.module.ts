@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {NotFoundComponent} from './shared/components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -28,9 +28,7 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () =>
-      import('./contents/register/register.module').then(
-        (m) => m.RegisterModule
-      ),
+      import('./contents/register/register.module').then((m) => m.RegisterModule),
   },
   {
     path: 'about',
@@ -53,7 +51,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

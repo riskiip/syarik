@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ArticleComponent } from './article.component';
-import { CreateArticleComponent } from './create-article/create-article.component';
-import { DetailArticleComponent } from './detail-article/detail-article.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {ArticleComponent} from './article.component';
+import {CreateArticleComponent} from './create-article/create-article.component';
+import {DetailArticleComponent} from './detail-article/detail-article.component';
 
 const routes: Routes = [
   {
@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-          component: ArticleComponent
+        component: ArticleComponent
       },
       {
         path: 'create',
@@ -18,14 +18,15 @@ const routes: Routes = [
       },
       {
         path: 'detail/:id',
-          component: DetailArticleComponent,
+        component: DetailArticleComponent,
       },
     ],
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  imports: [ RouterModule.forChild(routes) ],
+  exports: [ RouterModule ],
 })
-export class ArticleRoutingModule {}
+export class ArticleRoutingModule {
+}

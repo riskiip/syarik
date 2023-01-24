@@ -1,9 +1,21 @@
-<app-header></app-header>
+<ng-container [ngSwitch]="router.url">
+  <ng-container *ngSwitchCase="'/login'">
+    <router-outlet name="auth"></router-outlet>
+  </ng-container>
 
-<div class="content-outer-container">
-  <div class="content-inner-container">
-    <router-outlet></router-outlet>
-  </div>
-</div>
+  <ng-container *ngSwitchCase="'/register'">
+    <router-outlet name="auth"></router-outlet>
+  </ng-container>
 
-<app-footer></app-footer>
+  <ng-container *ngSwitchDefault>
+    <app-header></app-header>
+
+    <div class="content-outer-container">
+      <div class="content-inner-container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </ng-container>
+</ng-container>
