@@ -19,11 +19,10 @@
       {{ articleDate | dateFormat }}
     </div>
 
-    <div class="description-field">
-      {{detailArticle.content}}
+    <div class="description-field" [innerHTML]="detailArticle.content">
     </div>
 
-    <div class="div">
+    <div class="tags-container">
       Tags:
       <div class="footer-field" *ngFor="let tag of detailArticle.tags">
         <div class="tag-field">

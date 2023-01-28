@@ -1,97 +1,74 @@
-<ng-container *ngIf="!isRegisForm else registration">
-  <div class="login-wrapper">
-    <div class="login-container">
-      <form [formGroup]="loginForm">
-        <div class="picture-container">
-          <img src="../../../assets/syarik.png" class="image" alt="tes">
+<div class="regis-wrapper">
+  <div class="regis-container">
+    <form [formGroup]="regisForm">
+      <div class="picture-container">
+        <img src="../../../assets/syarik.png" class="image" alt="tes">
+      </div>
+
+      <div class="name-field mt-4">
+        <div class="text">
+          Nama
         </div>
 
-        <div class="email-field mt-4">
-          <div class="text">
-            Email
-          </div>
+        <div class="value">
+          <input
+            type="text"
+            [formControlName]="'nameRegis'"
+            class="input-field"
+            placeholder="Masukkan nama Anda"
+            autocomplete="off">
+        </div>
+      </div>
 
-          <div class="value">
-            <input
-              type="text"
-              [formControlName]="'emailLogin'"
-              class="input-field"
-              placeholder="Masukkan email Anda"
-              autocomplete="off">
-          </div>
+      <div class="email-field">
+        <div class="text">
+          Email
         </div>
 
-        <div class="password-field">
-          <div class="text">
-            Password
-          </div>
+        <div class="value">
+          <input
+            type="text"
+            [formControlName]="'emailRegis'"
+            class="input-field"
+            placeholder="Masukkan email Anda"
+            autocomplete="off">
+        </div>
+      </div>
 
-          <div class="value">
-            <input
-              type="password"
-              [formControlName]="'passwordLogin'"
-              class="input-field"
-              placeholder="Masukkan password Anda"
-              autocomplete="off">
-          </div>
+      <div class="dob-field">
+        <div class="text">
+          Tanggal Lahir
         </div>
 
-        <div class="button-field">
-          <button class="custom-button-filled-danger">Masuk</button>
-          <p>Belum punya Akun? Registrasi <span style="cursor: pointer; text-decoration: underline"
-                                                (click)="changeRegistration()">&nbsp;di sini</span></p>
+        <div class="value">
+          <input
+            type="date"
+            [formControlName]="'dobRegis'"
+            class="input-field"
+            autocomplete="off">
         </div>
-      </form>
-    </div>
+      </div>
+
+      <div class="password-field">
+        <div class="text">
+          Password
+        </div>
+
+        <div class="value">
+          <input
+            type="password"
+            [formControlName]="'passwordRegis'"
+            class="input-field"
+            placeholder="Masukkan password Anda"
+            autocomplete="off">
+        </div>
+      </div>
+
+      <div class="button-field">
+        <button class="custom-button-outline-danger" (click)="submitRegistration()">Daftar</button>
+        <p>Sudah punya Akun? Masuk <span style="cursor: pointer; text-decoration: underline"
+                                         (click)="changeRegistration()">&nbsp;di sini</span></p>
+      </div>
+    </form>
   </div>
-</ng-container>
-
-<ng-template #registration>
-  <div class="regis-wrapper">
-    <div class="regis-container">
-      <form [formGroup]="regisForm">
-        <div class="picture-container">
-          <img src="../../../assets/syarik.png" class="image" alt="tes">
-        </div>
-
-        <div class="email-field mt-4">
-          <div class="text">
-            Email
-          </div>
-
-          <div class="value">
-            <input
-              type="text"
-              [formControlName]="'emailRegis'"
-              class="input-field"
-              placeholder="Masukkan email Anda"
-              autocomplete="off">
-          </div>
-        </div>
-
-        <div class="password-field">
-          <div class="text">
-            Password
-          </div>
-
-          <div class="value">
-            <input
-              type="password"
-              [formControlName]="'passwordRegis'"
-              class="input-field"
-              placeholder="Masukkan password Anda"
-              autocomplete="off">
-          </div>
-        </div>
-
-        <div class="button-field">
-          <button class="custom-button-outline-danger">Daftar</button>
-          <p>Sudah punya Akun? Masuk <span style="cursor: pointer; text-decoration: underline"
-                                           (click)="changeRegistration()">&nbsp;di sini</span></p>
-        </div>
-      </form>
-    </div>
-  </div>
-
-</ng-template>
-
+</div>

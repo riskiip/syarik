@@ -14,7 +14,7 @@ import {LoaderComponent} from './components/loader/loader.component';
     NotFoundComponent,
     DateFormatPipe,
     CardComponent,
-    LoaderComponent
+    LoaderComponent,
   ],
   imports: [
     CommonModule
@@ -24,7 +24,7 @@ import {LoaderComponent} from './components/loader/loader.component';
     FooterComponent,
     DateFormatPipe,
     CardComponent,
-    LoaderComponent
+    LoaderComponent,
   ]
 })
 export class SharedModule {

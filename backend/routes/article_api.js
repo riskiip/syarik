@@ -107,7 +107,7 @@ router.put("/update/:id", upload.any("image"), (req, res) => {
 router.get("/latest", (req, res) => {
   Article.find({})
     .limit(3)
-    .sort({date: 'desc'})
+    .sort({date: 'asc'})
     .then((articles) => {
       res.status(200).send(articles);
     })
@@ -131,4 +131,3 @@ router.get("/al/:tag", (req, res) => {
 });
 
 module.exports = router;
-  

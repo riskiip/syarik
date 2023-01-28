@@ -9,9 +9,9 @@
   .login-container, .regis-container {
 
     background-color: white;
-    box-shadow: -3px 7px 57px -5px rgba(0,0,0,0.81);
-    -webkit-box-shadow: -3px 7px 57px -5px rgba(0,0,0,0.81);
-    -moz-box-shadow: -3px 7px 57px -5px rgba(0,0,0,0.81);
+    box-shadow: -3px 7px 57px -5px rgba(0, 0, 0, 0.81);
+    -webkit-box-shadow: -3px 7px 57px -5px rgba(0, 0, 0, 0.81);
+    -moz-box-shadow: -3px 7px 57px -5px rgba(0, 0, 0, 0.81);
   }
 
   .picture-container {
@@ -28,10 +28,10 @@
     }
   }
 
-  .email-field, .password-field, .button-field {
+  .email-field, .name-field, .dob-field, .password-field, .button-field {
     display: flex;
     flex-direction: column;
-    padding: 16px;
+    padding: 8px;
   }
 
   .input-field {
@@ -63,7 +63,7 @@
   .login-wrapper, .regis-wrapper {
     background-color: var(--red-navbar);
   }
-  .login-container,  .regis-container {
+  .login-container, .regis-container {
     border-radius: 20px;
   }
 

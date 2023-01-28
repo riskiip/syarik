@@ -35,11 +35,12 @@
   }
 
   .footer-field {
-    border: 1px solid var(--grey-body);
+    border: 1px solid var(--red-navbar);
     width: fit-content;
     padding: 8px;
     border-radius: 12px;
     display: flex;
+    margin: 0 8px;
   }
 
   .tag-field {
@@ -47,5 +48,7 @@
   }
 }
 
-
-
+.tags-container {
+  display: flex;
+  align-items: center;
+}

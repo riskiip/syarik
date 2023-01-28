@@ -1,103 +1,105 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const Author = require("../models/author");
-const multer = require("multer");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const Author = require('../models/author');
+const multer = require('multer');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
-let filename = "";
+let filename = '';
 const mystorage = multer.diskStorage({
-  destination: "./upload-image",
-  filename: (req, file, redirect) => {
-    let date = Date.now();
+	destination: './upload-image',
+	filename: (req, file, redirect) => {
+		let date = Date.now();
 
-    let fl = date + "." + file.mimetype.split("/")[1];
-    //786876876786.png
-    redirect(null, fl);
-    filename = fl;
-  },
+		let fl = date + '.' + file.mimetype.split('/')[1];
+		//786876876786.png
+		redirect(null, fl);
+		filename = fl;
+	},
 });
 
-const upload = multer({ storage: mystorage });
+const upload = multer({storage: mystorage});
 
-router.post("/register", upload.any("image"), (req, res) => {
-  let data = req.body;
-  let author = new Author(data);
+router.post('/register', upload.any('image'), (req, res) => {
+	let data = req.body;
+	let author = new Author(data);
 
-  author.image = filename;
+	author.image = filename;
 
-  let salt = bcrypt.genSaltSync(10);
-  author.password = bcrypt.hashSync(data.password, salt);
+	let salt = bcrypt.genSaltSync(10);
+	author.password = bcrypt.hashSync(data.password, salt);
 
-  author
-    .save()
-    .then((savedAuthor) => {
-      filename = "";
-      res.status(200).send(savedAuthor);
-    })
-    .catch((err) => {
-      res.send(err);
-    });
+	author
+		.save()
+		.then((savedAuthor) => {
+			filename = '';
+			res.status(200).send(savedAuthor);
+		})
+		.catch((err) => {
+			res.send(err);
+		});
 });
 
-router.post("/login", (req, res) => {
-  let data = req.body;
+router.post('/login', (req, res) => {
+	let data = req.body;
 
-  Author.findOne({ email: data.email })
-    .then((author) => {
-      let valid = bcrypt.compareSync(data.password, author.password);
-      if (!valid) {
-        res.send("email or password invalid");
-      } else {
-        let payload = {
-          _id: author._id,
-          email: author.email,
-          fullname: author.name + " " + author.lastname,
-        };
+	Author.findOne({email: data.email})
+		.then((author) => {
+			let valid = bcrypt.compareSync(data.password, author.password);
+			if (!valid) {
+				res.send('email or password invalid');
+			} else {
+				let payload = {
+					_id: author._id,
+					email: author.email,
+					fullname: author.name + ' ' + author.lastname,
+				};
 
-        let token = jwt.sign(payload, "123456789");
+				let token = jwt.sign(payload, '123456789');
 
-        res.send({ myToken: token });
-      }
-    })
-    .catch((err) => {
-      res.send(err);
-    });
+				res.send({
+					myToken: token,
+					authorId: author._id
+				});
+			}
+		})
+		.catch((err) => {
+			res.send(err);
+		});
 });
 
-router.get("/all", (req, res) => {
-  Author.find({})
-    .then((authors) => {
-      res.status(200).send(authors);
-    })
-    .catch((err) => {
-      res.status(400).send(err);
-    });
+router.get('/all', (req, res) => {
+	Author.find({})
+		.then((authors) => {
+			res.status(200).send(authors);
+		})
+		.catch((err) => {
+			res.status(400).send(err);
+		});
 });
 
-router.get("/getbyid/:id", (req, res) => {
-  let id = req.params.id;
+router.get('/getbyid/:id', (req, res) => {
+	let id = req.params.id;
 
-  Author.findOne({ _id: id })
-    .then((author) => {
-      res.status(200).send(author);
-    })
-    .catch((err) => {
-      res.status(400).send(err);
-    });
+	Author.findOne({_id: id})
+		.then((author) => {
+			res.status(200).send(author);
+		})
+		.catch((err) => {
+			res.status(400).send(err);
+		});
 });
 
-router.delete("/supprimer/:id", (req, res) => {
-  let id = req.params.id;
+router.delete('/supprimer/:id', (req, res) => {
+	let id = req.params.id;
 
-  Author.findByIdAndDelete({ _id: id })
-    .then((author) => {
-      res.status(200).send(author);
-    })
-    .catch((err) => {
-      res.status(400).send(err);
-    });
+	Author.findByIdAndDelete({_id: id})
+		.then((author) => {
+			res.status(200).send(author);
+		})
+		.catch((err) => {
+			res.status(400).send(err);
+		});
 });
 
 module.exports = router;
-  

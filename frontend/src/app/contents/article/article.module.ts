@@ -6,6 +6,8 @@ import {ArticleRoutingModule} from './article-routing.module';
 import {ArticleComponent} from './article.component';
 import {CreateArticleComponent} from './create-article/create-article.component';
 import {DetailArticleComponent} from './detail-article/detail-article.component';
+import {FormsModule} from '@angular/forms';
+import {AngularEditorModule} from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,8 @@ import {DetailArticleComponent} from './detail-article/detail-article.component'
     CreateArticleComponent,
     DetailArticleComponent,
   ],
-  imports: [CommonModule, ArticleRoutingModule, SharedModule],
-  exports: [  ArticleComponent ]
+  imports: [ CommonModule, ArticleRoutingModule, SharedModule, FormsModule, AngularEditorModule ],
+  exports: [ ArticleComponent ]
 })
-export class ArticleModule {}
+export class ArticleModule {
+}

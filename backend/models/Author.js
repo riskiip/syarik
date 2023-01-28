@@ -4,8 +4,8 @@ const Author = mongoose.model("Author", {
   name: {
     type: String,
   },
-  lastname: {
-    type: String,
+  dob: {
+    type: Date,
   },
   email: {
     type: String,

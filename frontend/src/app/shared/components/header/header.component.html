@@ -19,8 +19,15 @@
         </li>
       </ul>
       <form class="d-flex" role="search">
-        <div class="nav-link"  style="margin-right: 10px;">Register</div>
-        <div class="nav-link">Login</div>
+        <ng-container *ngIf="tokenExisted; else default">
+          <div class="nav-link" style="margin-right: 10px;" (click)="toProfile()">Profile</div>
+          <div class="nav-link" (click)="logout()">Logout</div>
+        </ng-container>
+
+        <ng-template #default>
+          <div class="nav-link" style="margin-right: 10px;" (click)="toRegister()">Register</div>
+          <div class="nav-link" (click)="toLogin()">Login</div>
+        </ng-template>
       </form>
     </div>
   </div>
