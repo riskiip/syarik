@@ -4,10 +4,11 @@ const Author = require('../models/author');
 const multer = require('multer');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const schema = require('../common/response_schema');
 
 let filename = '';
 const mystorage = multer.diskStorage({
-	destination: './upload-image',
+	destination: './uploads',
 	filename: (req, file, redirect) => {
 		let date = Date.now();
 
@@ -23,20 +24,17 @@ const upload = multer({storage: mystorage});
 router.post('/register', upload.any('image'), (req, res) => {
 	let data = req.body;
 	let author = new Author(data);
-
 	author.image = filename;
-
 	let salt = bcrypt.genSaltSync(10);
 	author.password = bcrypt.hashSync(data.password, salt);
-
 	author
 		.save()
 		.then((savedAuthor) => {
 			filename = '';
-			res.status(200).send(savedAuthor);
+			res.status(200).send(schema('SYR-00', 'Berhasil', {savedAuthor}));
 		})
 		.catch((err) => {
-			res.send(err);
+			res.status(500).send(schema('SYR-99', 'Terjadi Kesalahan', err));
 		});
 });
 
@@ -54,39 +52,36 @@ router.post('/login', (req, res) => {
 					email: author.email,
 					fullname: author.name + ' ' + author.lastname,
 				};
-
 				let token = jwt.sign(payload, '123456789');
-
-				res.send({
+				res.status(200).send(schema('SYR-00', 'Berhasil', {
 					myToken: token,
 					authorId: author._id
-				});
+				}));
 			}
 		})
 		.catch((err) => {
-			res.send(err);
+			res.status(500).send(schema('SYR-99', 'User Tidak Ditemukan', err));
 		});
 });
 
 router.get('/all', (req, res) => {
 	Author.find({})
 		.then((authors) => {
-			res.status(200).send(authors);
+			res.status(200).send(schema('SYR-00', 'Berhasil', authors));
 		})
 		.catch((err) => {
-			res.status(400).send(err);
+			res.status(500).send(schema('SYR-99', 'Terjadi Kesalahan', err));
 		});
 });
 
 router.get('/getbyid/:id', (req, res) => {
 	let id = req.params.id;
-
 	Author.findOne({_id: id})
 		.then((author) => {
-			res.status(200).send(author);
+			res.status(200).send(schema('SYR-00', 'Berhasil', author));
 		})
 		.catch((err) => {
-			res.status(400).send(err);
+			res.status(500).send(schema('SYR-99', 'Terjadi Kesalahan', err));
 		});
 });
 
@@ -95,10 +90,10 @@ router.delete('/supprimer/:id', (req, res) => {
 
 	Author.findByIdAndDelete({_id: id})
 		.then((author) => {
-			res.status(200).send(author);
+			res.status(200).send(schema('SYR-00', 'Berhasil', author));
 		})
 		.catch((err) => {
-			res.status(400).send(err);
+			res.status(500).send(schema('SYR-99', 'Terjadi Kesalahan', err));
 		});
 });
 
