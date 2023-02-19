@@ -1,27 +1,65 @@
-<div class="article-wrapper">
-  <div class="article-container" *ngFor="let article of articles">
-    <a class="clickable-card" (click)="goToDetailArticle(article._id)">
-      <article>
-        <div class="article-wrapper">
-          <figure>
-            <img [src]="'http://127.0.0.1:3000/getimage/' + article.image" alt="" />
-          </figure>
-          <div class="article-body">
-            <div class="date-section">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-              </svg>
-              {{ article.date | dateFormat }}
-            </div>
+<div class="card-wrapper">
+  <div class="card-container">
+    <div class="text-section">
+      <div class="date-field">
+        AUGUST 13, 2022
+      </div>
 
-            <h2>{{ article.title }}</h2>
-            <p>
-              {{article.description}}
-            </p>
-            <div class="read-more">Read more</div>
-          </div>
-        </div>
-      </article>
-    </a>
+      <div class="title-field">
+        10 Hilarious Cartoons That Depict Real-Life Problems of Programmers
+      </div>
+
+      <div class="description-field">
+        Redefined the user acquisition and redesigned the onboarding experience, all within 3 working weeks.
+      </div>
+    </div>
+
+    <div class="image-section">
+      <img class="images" src="https://www.se.com/id/id/assets/v2/536/media/230667/900/709934422-Buildings-Facts-IC-1920x1080.jpg" alt="building">
+    </div>
+  </div>
+</div>
+
+<div class="card-wrapper">
+  <div class="card-container">
+    <div class="text-section">
+      <div class="date-field">
+        AUGUST 13, 2022
+      </div>
+
+      <div class="title-field">
+        10 Hilarious Cartoons That Depict Real-Life Problems of Programmers
+      </div>
+
+      <div class="description-field">
+        Redefined the user acquisition and redesigned the onboarding experience, all within 3 working weeks.
+      </div>
+    </div>
+
+    <div class="image-section">
+      <img class="images" src="https://www.se.com/id/id/assets/v2/536/media/230667/900/709934422-Buildings-Facts-IC-1920x1080.jpg" alt="building">
+    </div>
+  </div>
+</div>
+
+<div class="card-wrapper">
+  <div class="card-container">
+    <div class="text-section">
+      <div class="date-field">
+        AUGUST 13, 2022
+      </div>
+
+      <div class="title-field">
+        10 Hilarious Cartoons That Depict Real-Life Problems of Programmers
+      </div>
+
+      <div class="description-field">
+        Redefined the user acquisition and redesigned the onboarding experience, all within 3 working weeks.
+      </div>
+    </div>
+
+    <div class="image-section">
+      <img class="images" src="https://www.se.com/id/id/assets/v2/536/media/230667/900/709934422-Buildings-Facts-IC-1920x1080.jpg" alt="building">
+    </div>
   </div>
 </div>

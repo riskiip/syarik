@@ -1,81 +1,88 @@
-
-
-.coba {
-  background: transparent;
-}
-
-/* center the blockquote in the page */
-.blockquote-wrapper {
+.hero-wrapper {
   display: flex;
-  margin-bottom: 32px;
-}
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
 
-/* Blockquote main style */
-.blockquote {
-  //font-family: 'Pacifico', cursive;
-  font-family: 'Kaushan Script', cursive;
-  position: relative;
-  font-weight: 600;
-  color: var(--grey-header);
-  padding: 30px 0;
-  width: 100%;
-  max-width: 700px;
-  z-index: 1;
-  margin: 32px auto;
-  align-self: center;
-  border-top: solid 1px;
-  border-bottom: solid 1px;
-}
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 970px;
+    max-height: 366px;
+    margin: 80px 0;
 
-/* Blockquote header */
-.blockquote h1 {
-  text-align: right;
-  letter-spacing: 1px;
-  position: relative;
-  color: var(--grey-header);
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 1;
-  margin: 0;
-}
+    .label-section {
+      background-color: #F2F4F7;
+      align-items: center;
+      justify-content: center;
+      max-width: 159px;
+      border-radius: 100px;
+      padding: 10px 16px;
+      margin-bottom: 50px;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+    }
 
-/* Blockquote right double quotes */
-.blockquote:after {
-  position: absolute;
-  content: "”";
-  color: var(--grey-header);
-  font-size: 10rem;
-  line-height: 0;
-  bottom: -43px;
-  right: 30px;
-}
+    .head-section {
+      text-align: center;
+      font-weight: 700;
+      font-size: 76px;
+      background: -webkit-linear-gradient(97.1deg, #C41740 4.8%, #EA9C28 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
 
-/* increase header size after 600px */
-@media all and (min-width: 600px) {
-  .blockquote h1 {
-    font-size: 60px;
+    .body-section {
+      text-align: center;
+      font-weight: 400;
+      font-size: 28px;
+      color: #475467;
+      max-width: 690px;
+    }
   }
 }
 
-/* Blockquote subheader */
-.blockquote h4 {
-  position: relative;
-  color: var(--grey-header);
-  font-size: 1.4rem;
-  font-weight: normal;
-  line-height: 1;
-  margin: 0;
-  padding-top: 20px;
-  z-index: 1;
-}
-
-.latest-article-section {
-  margin-bottom: 16px;
-}
-
-.button-field {
+.article-wrapper {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  margin-top: 16px;
+  background-color: #F2F4F7;
+
+  .article-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+
+    .category-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .title-field {
+        float: left;
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 24px;
+        color: #1D2939;
+      }
+
+      .view-all-field {
+        float: right;
+        cursor: pointer;
+        background-color: white;
+        padding: 8px 12px;
+        border-radius: 8px;
+      }
+    }
+
+    .card-section {
+      margin-top: 31px;
+      display: flex;
+    }
+  }
 }

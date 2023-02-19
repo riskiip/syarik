@@ -3,19 +3,12 @@
 
 :root {
   // Font Color
-  --grey-header: #204056;
-  --grey-body: #393E46;
+  --black-title: #1E2834;
+  --black-body: #1D2939;
+  --black-footer: #475467;
 
   // Background
-  --red-navbar: #85586F;
-  --white-darker: #F9F7F7;
-  --white: #fff;
-
-  // Button Color
-  --red-button: #85586F;
-  --yellow-button: #fffec3;
-  --green-button: #82c8e2;
-  --blue-button: #a4d7ec;
+  --grey-bg: #F2F4F7;
 }
 
 html, body, app-root {
@@ -24,21 +17,32 @@ html, body, app-root {
 }
 
 body {
-  background-color: var(--white-darker);
+  background-color: var(--grey-bg);
   margin: 0
 }
 
-div {
-  color: var(--grey-body);
-}
+.btn {
+  &-transparent {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
 
-.title-styling {
-  font-size: 24px;
-  color: var(--grey-header);
-  margin: 24px 0 32px 0;
-  text-align: center;
-  font-weight: 800;
-  line-height: 24px;
+  &-filled {
+    height: 44px;
+    min-width: 97px;
+    border-radius: 8px;
+    background-color: var(--black-body);
+    padding: 12px 14px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    cursor: pointer;
+  }
 }
 
 .angular-editor-textarea {

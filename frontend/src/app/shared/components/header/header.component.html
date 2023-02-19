@@ -1,34 +1,47 @@
-<nav class="navbar navbar-expand-lg" style="background-color: #85586F;">
-  <div class="container-fluid">
-    <a class="navbar-brand" (click)="toHome()">
-      <img src="../../../../assets/syarik.png" class="nav-logo" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link" (click)="toHome()">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="toBlog()">Posts</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="toAbout()">About</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <ng-container *ngIf="tokenExisted; else default">
-          <div class="nav-link" style="margin-right: 10px;" (click)="toProfile()">Profile</div>
-          <div class="nav-link" (click)="logout()">Logout</div>
-        </ng-container>
+<div class="header-wrapper">
+  <div class="brand-container brand-title">
+    Syarik
+  </div>
 
-        <ng-template #default>
-          <div class="nav-link" style="margin-right: 10px;" (click)="toRegister()">Register</div>
-          <div class="nav-link" (click)="toLogin()">Login</div>
-        </ng-template>
-      </form>
+  <div class="nav-container">
+    <div class="categories-section">
+      <button class="btn-transparent" (click)="onClickNav('daily')" [ngClass]="isActive1 ? 'changeBackground' : ''">
+        Tech Talks
+      </button>
+      <button class="btn-transparent" (click)="onClickNav('design')" [ngClass]="isActive2 ? 'changeBackground' : ''">
+        Life
+      </button>
+      <button class="btn-transparent" (click)="onClickNav('tutorials')" [ngClass]="isActive3 ? 'changeBackground' : ''">
+        Tutorials
+      </button>
+    </div>
+
+    <div class="login-section">
+      <button class="btn-filled">Login</button>
+    </div>
+
+    <div class="burger-menu-section">
+      <i class="fa-solid" [ngClass]="burgerMenuClicked ? 'fa-xmark' : 'fa-bars'" (click)="openMobileMenu()"></i>
     </div>
   </div>
-</nav>
+</div>
+
+<ng-container *ngIf="burgerMenuClicked">
+  <div class="mobile-menu-container">
+    <div class="categories-mobile-section">
+      <button class="btn-transparent" (click)="onClickNav('daily')" [ngClass]="isActive1 ? 'changeBackground' : ''">
+        Tech Talks
+      </button>
+      <button class="btn-transparent" (click)="onClickNav('design')" [ngClass]="isActive2 ? 'changeBackground' : ''">
+        Life
+      </button>
+      <button class="btn-transparent" (click)="onClickNav('tutorials')" [ngClass]="isActive3 ? 'changeBackground' : ''">
+        Tutorials
+      </button>
+    </div>
+
+    <div class="login-mobile-section">
+      <button class="btn-filled">Login</button>
+    </div>
+  </div>
+</ng-container>

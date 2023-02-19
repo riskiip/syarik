@@ -1,9 +1,77 @@
-.nav-logo {
-  width: 84px;
-  height: 84px;
+@import "../../../../styles/template/dimesion";
+
+.header-wrapper {
+  padding: 20px 68.25px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
 }
 
-.nav-link {
-  color: white;
+.burger-menu-section {
+  display: flex;
+  float: right;
+}
+
+.brand-title {
+  color: var(--black-title);
+  font-weight: 800;
   font-size: 24px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.categories-section, .login-section {
+  display: none;
+}
+
+.changeBackground {
+  background: -webkit-linear-gradient(97.1deg, #C41740 4.8%, #EA9C28 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mobile-menu-container {
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 68.25px;
+  background-color: white;
+}
+
+.categories-mobile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+// 747px ke atas ->
+@media screen and (min-width: $bp-md) {
+  .burger-menu-section, .mobile-menu-container {
+    display: none;
+  }
+
+  .categories-section {
+    margin-right: 50px;
+  }
+
+  .brand-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-container {
+    display: flex;
+    float: right;
+  }
+
+  .categories-section {
+    display: flex;
+    gap: 30px;
+  }
+
+  .login-section {
+    display: flex;
+  }
 }
